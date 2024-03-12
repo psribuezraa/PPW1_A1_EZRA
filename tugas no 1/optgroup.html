@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        fieldset {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Form Pendaftaran</h1>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Data Pribadi</legend>
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="fakultas">Fakultas:</label>
+            <input list="list_fakultas" id="fakultas" name="fakultas" required>
+            <datalist id="list_fakultas">
+                <option value="Fakultas Teknik">
+                <option value="Fakultas Ekonomi">
+                <option value="Fakultas Sastra">
+            </datalist>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="jenis_kelamin">Jenis Kelamin:</label>
+            <select id="jenis_kelamin" name="jenis_kelamin" required>
+                <option value="">Pilih jenis kelamin</option>
+                <optgroup label="Pria">
+                    <option value="Laki-laki">Laki-laki</option>
+                </optgroup>
+                <optgroup label="Wanita">
+                    <option value="Perempuan">Perempuan</option>
+                </optgroup>
+            </select>
+
+            <label for="hobi">Hobi:</label>
+            <input type="text" id="hobi" name="hobi">
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
