@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPW1 Praktikum Check</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        #infoForm {
+            display: none;
+        }
+        #notAllowed {
+            display: none;
+        }
+        #resultTable {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">PPW1 Practicum Check</h1>
+        <div class="text-center">
+            <p>Apakah anda praktikan PPW1?</p>
+            <button id="yesBtn" class="btn btn-primary">Iya</button>
+            <button id="noBtn" class="btn btn-danger">Tidak</button>
+        </div>
+
+        <form id="infoForm" class="mt-4">
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="nim">NIM:</label>
+                <input type="text" class="form-control" id="nim" required>
+            </div>
+            <div class="form-group">
+                <label for="angkatan">Angkatan:</label>
+                <input type="text" class="form-control" id="angkatan" required>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+
+        <div id="notAllowed" class="alert alert-danger mt-4">
+            Anda bukan praktikan PPW1, anda tidak boleh masuk!
+        </div>
+
+        <table id="resultTable" class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Angkatan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="resultName"></td>
+                    <td id="resultNim"></td>
+                    <td id="resultAngkatan"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            document.getElementById('infoForm').style.display = 'block';
+            document.getElementById('notAllowed').style.display = 'none';
+            document.getElementById('resultTable').style.display = 'none';
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            document.getElementById('infoForm').style.display = 'none';
+            document.getElementById('notAllowed').style.display = 'block';
+            document.getElementById('resultTable').style.display = 'none';
+        });
+
+        document.getElementById('infoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const nim = document.getElementById('nim').value;
+            const angkatan = document.getElementById('angkatan').value;
+            
+            document.getElementById('resultName').innerText = name;
+            document.getElementById('resultNim').innerText = nim;
+            document.getElementById('resultAngkatan').innerText = angkatan;
+            
+            document.getElementById('infoForm').style.display = 'none';
+            document.getElementById('notAllowed').style.display = 'none';
+            document.getElementById('resultTable').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
